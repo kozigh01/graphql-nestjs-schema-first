@@ -2,6 +2,8 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { INestApplication } from '@nestjs/common';
 import * as request from 'supertest';
 import { AppModule } from './../src/app.module';
+import { GraphQLSchemaHost } from '@nestjs/graphql';
+import { graphql, GraphQLSchema } from 'graphql';
 
 describe('AppController (e2e)', () => {
   let app: INestApplication;
@@ -13,6 +15,10 @@ describe('AppController (e2e)', () => {
 
     app = moduleFixture.createNestApplication();
     await app.init();
+
+    // https://docs.nestjs.com/graphql/quick-start#accessing-generated-schema
+    //    https://graphql.org/graphql-js/
+    const { schema }: { schema: GraphQLSchema } = app.get(GraphQLSchemaHost);
   });
 
   it('/ (GET)', () => {
