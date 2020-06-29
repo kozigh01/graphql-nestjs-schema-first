@@ -1,0 +1,22 @@
+version: "3.8"
+
+services: 
+  nestjs:
+    container_name: web-api
+    build:
+      context: .
+    command: npm run start:dev
+    env_file: .env
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - ${PORT_API}:${PORT_API}
+      - 9229:9229
+    networks:
+      - back-end
+
+networks:
+  back-end:
+
+
