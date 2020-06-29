@@ -1,3 +1,4 @@
 type Query {
+  author(id: ID): Author
   authors: [Author!]!
 }
