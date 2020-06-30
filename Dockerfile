@@ -5,11 +5,14 @@ WORKDIR /app
 ENV PORT_API=3000
 
 COPY package.json ./
-RUN npm install
-
+RUN npm install \
+    && npm cache clean --force
+    
 copy . .
 
-EXPOSE ${PORT_API}
+EXPOSE ${PORT_API} 9229
+
+RUN apk update && apk add bash
 
 CMD ["npm", "run", "start:dev"]
 

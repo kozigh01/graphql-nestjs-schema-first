@@ -10,7 +10,7 @@ export class AuthorsResolver {
   ) {}
 
   @Query('author')
-  getAuthor(@Args('id') id: number) {
+  getAuthor(@Args('id') id: string) {
     return this.authorSerivce.getAuthor(id);
   }
 
