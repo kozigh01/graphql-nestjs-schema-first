@@ -12,7 +12,7 @@ copy . .
 
 EXPOSE ${PORT_API} 9229
 
-RUN apk update && apk add bash
+RUN apk update && apk add bash && apk add git
 
 CMD ["npm", "run", "start:dev"]
 
