@@ -1,6 +1,6 @@
 import { Resolver, Query, Args, ResolveField, Parent } from "@nestjs/graphql";
 import { AuthorsService } from "./authors.service";
-import {} from '../../graphql';
+import { Author } from '../../graphql';
 import { PostsService } from "../posts/posts.service";
 
 @Resolver('Author')
@@ -20,8 +20,8 @@ export class AuthorsResolver {
     return this.authorSerivce.getAuthors();
   }
 
-  @ResolveField()
-  async posts(@Parent() author) {
+  @ResolveField('posts')
+  async getPosts(@Parent() author) {
     const { id } = author;
     return this.postsService.findAll({ authorId: id });
   }

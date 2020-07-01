@@ -6,24 +6,22 @@
 
 /* tslint:disable */
 /* eslint-disable */
-export interface Author {
-    __typename?: 'Author';
+export class Author {
     id: string;
     firstName?: string;
     lastName?: string;
     posts?: Post[];
 }
 
-export interface Post {
-    __typename?: 'Post';
+export class Post {
     id: string;
     authorId: string;
     title: string;
     votes?: number;
 }
 
-export interface IQuery {
-    __typename?: 'IQuery';
-    author(id?: string): Author | Promise<Author>;
-    authors(): Author[] | Promise<Author[]>;
+export abstract class IQuery {
+    abstract author(id?: string): Author | Promise<Author>;
+
+    abstract authors(): Author[] | Promise<Author[]>;
 }
