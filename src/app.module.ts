@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 
 import { GraphQLModule } from '@nestjs/graphql';
 import { AuthorsModule } from './graphql/authors/authors.module';
+import { PostsModule } from './graphql/posts/posts.module';
 
 @Module({
   imports: [
@@ -20,7 +21,8 @@ import { AuthorsModule } from './graphql/authors/authors.module';
         requireResolversForResolveType: false,
       }
     }), 
-    AuthorsModule
+    AuthorsModule,
+    PostsModule
   ],
   controllers: [AppController],
   providers: [AppService],

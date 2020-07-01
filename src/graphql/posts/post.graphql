@@ -1,5 +1,6 @@
 type Post {
-  id: Int!
+  id: ID!
+  authorId: ID!
   title: String!
   votes: Int
 }
