@@ -4,6 +4,7 @@ services:
   nestjs:
     build:
       context: .
+      target: prod
     # command: npm run start:debug
     env_file: .env
     volumes:
